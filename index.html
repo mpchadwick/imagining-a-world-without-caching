@@ -49,7 +49,7 @@
 						<p>Doing [something] is expensive! It would be much cheaper to <strong>not</strong> do [something].</p>
 					</section>
 					<section>
-						<p>When you request a page from Magento...</p>
+						<h3>When you request a page from Magento...</h3>
 						<ul>
 							<li class="fragment">Browser Cache</li>
 							<li class="fragment">DNS Cache</li>
@@ -121,8 +121,22 @@
 					</section>
 				</section>
 
-				<!-- 4. Browser Caching -->
+				<!-- 4. DNS Caching -->
 				<section>
+					<section>
+						<h3>Agenda</h3>
+						<ul>
+							<li>Browser Cache</li>
+							<li><strong>DNS Cache</strong></li>
+							<li>Edge Cache / CDN</li>
+							<li>(Full) Page Cache</li>
+							<li>Caching the results of executed code</li>
+							<li>MySQL Query Cache</li>
+							<li>Linux Page Cache</li>
+							<li>Magento Indexes</li>
+							<li>Code Level Caching (or memoization)</li>
+						</ul>
+					</section>
 					<section>
 						<h1>DNS Caching</h1>
 					</section>
@@ -147,6 +161,36 @@
 							<li class="fragment">Set it low (e.g 5 minutes) for instant changes - <a href="https://blog.cloudflare.com/never-deal-with-dns-propagation-again/">Cloudflare, Never deal with propagation again</a></li>
 							<li class="fragment">Compromise between fast changes and cache hit rate (e.g. 1 hour) - <a href="http://dyn.com/blog/dyn-tech-everything-you-ever-wanted-to-know-about-ttls/">Dyn, Everything You Ever Wanted To Know About TTLs</a></li>
 							<li class="fragment">Set it high (e.g. 24 hours). Decrease it before you make changes. Then set it high again - <a href="https://support.rackspace.com/how-to/about-ttl-best-practices/">Rackspace, Best Practices for using TTL</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Agenda</h3>
+						<ul>
+							<li>Browser Cache</li>
+							<li>DNS Cache</li>
+							<li><strong>Edge Cache / CDN</strong></li>
+							<li>(Full) Page Cache</li>
+							<li>Caching the results of executed code</li>
+							<li>MySQL Query Cache</li>
+							<li>Linux Page Cache</li>
+							<li>Magento Indexes</li>
+							<li>Code Level Caching (or memoization)</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Edge Cache / CDNs</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+							<li class="fragment">When a request hits the network it travels through a series of "hops" to reach the "origin".</li>
+							<li class="fragment">The response may be cached at one of those stops along the way (an "edge").</li>
+							<li class="fragment">Responses cached at edge are closer geographically to user, reducing round-trip-time.</li>
+							<li class="fragment">CDNs ("Content Delivery Networks") have many edges all around the world.</li>
+							<li class="fragment">Frequently used with static assets (img, js, css), but HTML can be served from the edge too.</li>
 						</ul>
 					</section>
 				</section>
