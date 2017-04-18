@@ -46,6 +46,9 @@
 						<p>If caching is so hard, why do it?</p>
 					</section>
 					<section>
+						<p>Doing [something] is expensive! It would be much cheaper to <strong>not</strong> do [something].</p>
+					</section>
+					<section>
 						<p>When you request a page from Magento...</p>
 						<ul>
 							<li class="fragment">Browser Cache</li>
@@ -73,8 +76,8 @@
 					<section>
 						<h3>What Is It?</h3>
 						<ul>
-							<li>When you make a request your browser will first check it's cache to see if the response is available.</li>
-							<li class="fragment">Cache contents are stored on your computer / device.</li>
+							<li class="fragment">When you make a request your browser will first check it's cache to see if the response is available.</li>
+							<li class="fragment">Cache contents are stored on your local device.</li>
 							<li class="fragment">If the response is in cache, the request never hits the network.</li>
 							<li class="fragment">Your application uses HTTP response headers to instruct the browser how to cache the response.</li>
 						</ul>
@@ -100,7 +103,7 @@
 					<section>
 						<h3>Imagining A World Without It</h3>
 						<a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">
-							<img src="img/browser-caching-web-page-test.png" alt="" width="600" />
+							<img src="img/browser-caching-web-page-test.png" alt="" width="800" />
 						</a>
 						<p style="font-size: 24px;"><a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/</a></p>
 					</section>
@@ -114,6 +117,36 @@
 							<li class="fragment">Magento 1 does not support cache busting out-of-the-box.</li>
 							<li class="fragment">Magento's built in merge JavaScript / merge CSS feature is bad for browser cache. Use HTTP/2 or roll your own.</li>
 							<li class="fragment">Be very careful with caching HTML documents. There's no way to invalidate them.</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- 4. Browser Caching -->
+				<section>
+					<section>
+						<h1>DNS Caching</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+							<li class="fragment">When a request hits the network, DNS is used to understand which server to go to.</li>
+							<li class="fragment">DNS records are hosted on nameservers.</li>
+							<li class="fragment">A TTL is included in each DNS record. Your computer and the internet cache DNS records for that long.</li>
+							<li class="fragment">If the DNS record is in cache, the nameserver does not need to be consulted to find where to go.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>TTL</h3>
+						<ul>
+							<img src="img/dns-ttl.jpg" alt="" />
+						</ul>
+					</section>
+					<section>
+						<h3>TTL Strategies</h3>
+						<ul>
+							<li class="fragment">Set it low (e.g 5 minutes) for instant changes - <a href="https://blog.cloudflare.com/never-deal-with-dns-propagation-again/">Cloudflare, Never deal with propagation again</a></li>
+							<li class="fragment">Compromise between fast changes and cache hit rate (e.g. 1 hour) - <a href="http://dyn.com/blog/dyn-tech-everything-you-ever-wanted-to-know-about-ttls/">Dyn, Everything You Ever Wanted To Know About TTLs</a></li>
+							<li class="fragment">Set it high (e.g. 24 hours). Decrease it before you make changes. Then set it high again - <a href="https://support.rackspace.com/how-to/about-ttl-best-practices/">Rackspace, Best Practices for using TTL</a></li>
 						</ul>
 					</section>
 				</section>
