@@ -64,6 +64,59 @@
 						<p>Let's imagine a world without any caching...</p>
 					</section>
 				</section>
+
+				<!-- 4. Browser Caching -->
+				<section>
+					<section>
+						<h1>Browser Cache</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+							<li>When you make a request your browser will first check it's cache to see if the response is available.</li>
+							<li class="fragment">Cache contents are stored on your computer / device.</li>
+							<li class="fragment">If the response is in cache, the request never hits the network.</li>
+							<li class="fragment">Your application uses HTTP response headers to instruct the browser how to cache the response.</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h3>Apache Configuration</h3>
+						```
+						<IfModule mod_expires.c>
+
+						############################################
+						## Add default Expires header
+						## http://developer.yahoo.com/performance/rules.html#expires
+
+						    ExpiresDefault "access plus 1 year"
+						    ExpiresByType text/html A0
+						    ExpiresByType text/plain A0
+
+						</IfModule>
+						```
+						</script>
+					</section>
+					<section>
+						<h3>Imagining A World Without It</h3>
+						<a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">
+							<img src="img/browser-caching-web-page-test.png" alt="" width="600" />
+						</a>
+						<p style="font-size: 24px;"><a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/</a></p>
+					</section>
+					<section>
+						<p>Improvements will be even <strong>more</strong> drastic on real world sites</p>
+					</section>
+					<section>
+						<h3>Pro Tips</h3>
+						<ul>
+							<li class="fragment">Magento 2 has built in cache busting via static asset deployment, but it could be smarter / more flexible.</li>
+							<li class="fragment">Magento 1 does not support cache busting out-of-the-box.</li>
+							<li class="fragment">Magento's built in merge JavaScript / merge CSS feature is bad for browser cache. Use HTTP/2 or roll your own.</li>
+							<li class="fragment">Be very careful with caching HTML documents. There's no way to invalidate them.</li>
+						</ul>
+					</section>
+				</section>
 			</div>
 		</div>
 
