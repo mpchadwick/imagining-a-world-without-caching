@@ -59,7 +59,6 @@
 							<li class="fragment">MySQL Query Cache</li>
 							<li class="fragment">Linux Page Cache</li>
 							<li class="fragment">Magento Indexes</li>
-							<li class="fragment">Code Level Caching (or memoization)</li>
 							<li class="fragment">And more!</li>
 						</ul>
 					</section>
@@ -134,7 +133,6 @@
 							<li>MySQL Query Cache</li>
 							<li>Linux Page Cache</li>
 							<li>Magento Indexes</li>
-							<li>Code Level Caching (or memoization)</li>
 						</ul>
 					</section>
 					<section>
@@ -178,7 +176,6 @@
 							<li>MySQL Query Cache</li>
 							<li>Linux Page Cache</li>
 							<li>Magento Indexes</li>
-							<li>Code Level Caching (or memoization)</li>
 						</ul>
 					</section>
 					<section>
@@ -226,7 +223,6 @@
 							<li>MySQL Query Cache</li>
 							<li>Linux Page Cache</li>
 							<li>Magento Indexes</li>
-							<li>Code Level Caching (or memoization)</li>
 						</ul>
 					</section>
 					<section>
@@ -273,6 +269,65 @@
 							<img src="img/tracking-query-params-registry.png" width="800">
 							<p style="font-size: 24px;"><a href="https://github.com/mpchadwick/tracking-query-params-registry/blob/master/data.csv">https://github.com/mpchadwick/tracking-query-params-registry</a></p>
 						</ul>
+					</section>
+				</section>
+
+				<!-- 7. Caching The Results of Executed Code -->
+				<section>
+					<section>
+						<h3>Agenda</h3>
+						<ul>
+							<li>Browser Cache</li>
+							<li>DNS Cache</li>
+							<li>Edge Cache / CDN</li>
+							<li>(Full) Page Cache</li>
+							<li><strong>Caching the results of executed code</strong></li>
+							<li>MySQL Query Cache</li>
+							<li>Linux Page Cache</li>
+							<li>Magento Indexes</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Caching the results of executed code</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+							<li class="fragment">Some application code is expensive to run.</li>
+							<li class="fragment">The result of the code is saved somewhere.</li>
+							<li class="fragment">Next time the code needs to run it first checks if the response is in cache</li>
+							<li class="fragment">The cache result can persist requests (e.g. saved in redis) or be reused in context of single request (saved in variable)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Examples In Magento (persisting requests)</h3>
+						<ul>
+							<li class="fragment">Config cache</li>
+							<li class="fragment">Layout cache</li>
+							<li class="fragment">Block cache</li>
+							<li class="fragment">Opcache</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h3>Reusing within a single request</h3>
+						```php
+						// This method will be called for each product
+						// on the listing page
+						public function getExpensiveValue()
+						{
+						    if ($this->expensiveValueToGenerate !== null) {
+						        return $this->expensiveValueToGenerate;
+						    }
+
+						    return $this->generateAndCacheExpensiveValueToGenerate();
+						}
+						```
+						</script>
+					</section>
+					<section>
+						<h3>Imagining A World Without It</h3>
+						<img src="img/m2-cache-ttfb.png">
 					</section>
 				</section>
 			</div>
