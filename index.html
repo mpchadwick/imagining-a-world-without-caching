@@ -49,7 +49,7 @@
 						<p>Doing [something] is expensive! It would be much cheaper to <strong>not</strong> do [something].</p>
 					</section>
 					<section>
-						<h3>When you request a page from Magento...</h3>
+						<h3>Types of caching when making an HTTP request to Magento...</h3>
 						<ul>
 							<li class="fragment">Browser Cache</li>
 							<li class="fragment">DNS Cache</li>
@@ -165,6 +165,7 @@
 					</section>
 				</section>
 
+				<!-- 5. Edge Caching -->
 				<section>
 					<section>
 						<h3>Agenda</h3>
@@ -208,6 +209,69 @@
 							<li class="fragment">Akamai</li>
 							<li class="fragment">Fastly (Magento cloud)</li>
 							<li class="fragment">Section.io</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- 6. (Full Page Cache) Caching -->
+				<section>
+					<section>
+						<h3>Agenda</h3>
+						<ul>
+							<li>Browser Cache</li>
+							<li>DNS Cache</li>
+							<li>Edge Cache / CDN</li>
+							<li><strong>(Full) Page Cache</strong></li>
+							<li>Caching the results of executed code</li>
+							<li>MySQL Query Cache</li>
+							<li>Linux Page Cache</li>
+							<li>Magento Indexes</li>
+							<li>Code Level Caching (or memoization)</li>
+						</ul>
+					</section>
+					<section>
+						<h1>(Full) Page Cache</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+							<li class="fragment">When Magento handles a request there is a lot of work required to generate the resulting HTML.</li>
+							<li class="fragment">Full Page Caching reuses the generated static HTML in subsequent requests.</li>
+							<li class="fragment">In Magento 2 you can use Varnish as a reverse proxy. It is included in CE.</li>
+							<li class="fragment">In Magento 1 page cache is EE only. Request is still handled by the web server and saved to cache backend. Community plugins support both caching strategies.</li>
+						</ul>
+					</section>
+					<section>
+						<p>"Full Page Caching reuses the generated static HTML in subsequent requests." - Me, just now</p>
+						<p class="fragment">But we can't serve it <strong>all</strong> statically</p>
+					</section>
+					<section>
+						<h3>Strategies For Dealing With Personalized Content</h3>
+						<li class="fragment">ESI</li>
+						<li class="fragment">AJAX (Magento 2)</li>
+						<li class="fragment">"Containers" (Magento 1)</li>
+					</section>
+					<section>
+						<h3>Imagining A World Without It</h3>
+						<img src="img/m2-page-cache-ttfb.png">
+						<a href="https://inviqa.com/blog/how-full-page-cache-works-magento-2">https://inviqa.com/blog/how-full-page-cache-works-magento-2</a>
+					</section>
+					<section>
+						<h3>Imagining A World Without It</h3>
+						<p>"It typically speeds up delivery with a factor of 300 - 1000x, depending on your architecture." - <a href="https://varnish-cache.org/intro/">https://varnish-cache.org/intro/</a></p>
+					</section>
+					<section>
+						<h3>Pro Tips</h3>
+						<ul>
+							<li class="fragment">Strip query params the server doesn't need to increase hit rate (e.g. gclid).</li>
+							<li class="fragment">Easy to mess up. Monitor your hit rate!</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Tracking Query Params Registry</h3>
+						<ul>
+							<img src="img/tracking-query-params-registry.png" width="800">
+							<p style="font-size: 24px;"><a href="https://github.com/mpchadwick/tracking-query-params-registry/blob/master/data.csv">https://github.com/mpchadwick/tracking-query-params-registry</a></p>
 						</ul>
 					</section>
 				</section>
