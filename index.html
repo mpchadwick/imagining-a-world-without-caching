@@ -50,17 +50,7 @@
 					</section>
 					<section>
 						<h3>Types of caching when making an HTTP request to Magento...</h3>
-						<ul>
-							<li class="fragment">Browser Cache</li>
-							<li class="fragment">DNS Cache</li>
-							<li class="fragment">Edge Cache / CDN</li>
-							<li class="fragment">(Full) Page Cache</li>
-							<li class="fragment">Caching the results of executed code</li>
-							<li class="fragment">MySQL Query Cache</li>
-							<li class="fragment">Linux Page Cache</li>
-							<li class="fragment">Magento Indexes</li>
-							<li class="fragment">And more!</li>
-						</ul>
+						<x-agenda data-show-and-more="1" data-fragmented="1"></x-agenda>
 					</section>
 					<section>
 						<p>Let's imagine a world without any caching...</p>
@@ -130,16 +120,7 @@
 				<section>
 					<section>
 						<h3>Agenda</h3>
-						<ul>
-							<li>Browser Cache</li>
-							<li><strong>DNS Cache</strong></li>
-							<li>Edge Cache / CDN</li>
-							<li>(Full) Page Cache</li>
-							<li>Caching the results of executed code</li>
-							<li>MySQL Query Cache</li>
-							<li>Linux Page Cache</li>
-							<li>Magento Indexes</li>
-						</ul>
+						<x-agenda data-current-index="1"></x-agenda>
 					</section>
 					<section>
 						<h1>DNS Caching</h1>
@@ -178,16 +159,7 @@
 				<section>
 					<section>
 						<h3>Agenda</h3>
-						<ul>
-							<li>Browser Cache</li>
-							<li>DNS Cache</li>
-							<li><strong>Edge Cache / CDN</strong></li>
-							<li>(Full) Page Cache</li>
-							<li>Caching the results of executed code</li>
-							<li>MySQL Query Cache</li>
-							<li>Linux Page Cache</li>
-							<li>Magento Indexes</li>
-						</ul>
+						<x-agenda data-current-index="2"></x-agenda>
 					</section>
 					<section>
 						<h1>Edge Cache / CDNs</h1>
@@ -230,16 +202,7 @@
 				<section>
 					<section>
 						<h3>Agenda</h3>
-						<ul>
-							<li>Browser Cache</li>
-							<li>DNS Cache</li>
-							<li>Edge Cache / CDN</li>
-							<li><strong>(Full) Page Cache</strong></li>
-							<li>Caching the results of executed code</li>
-							<li>MySQL Query Cache</li>
-							<li>Linux Page Cache</li>
-							<li>Magento Indexes</li>
-						</ul>
+						<x-agenda data-current-index="3"></x-agenda>
 					</section>
 					<section>
 						<h1>(Full) Page Cache</h1>
@@ -292,16 +255,7 @@
 				<section>
 					<section>
 						<h3>Agenda</h3>
-						<ul>
-							<li>Browser Cache</li>
-							<li>DNS Cache</li>
-							<li>Edge Cache / CDN</li>
-							<li>(Full) Page Cache</li>
-							<li><strong>Caching the results of executed code</strong></li>
-							<li>MySQL Query Cache</li>
-							<li>Linux Page Cache</li>
-							<li>Magento Indexes</li>
-						</ul>
+						<x-agenda data-current-index="4"></x-agenda>
 					</section>
 					<section>
 						<h1>Caching the results of executed code</h1>
@@ -365,6 +319,43 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+			class XAgenda extends HTMLElement {
+				constructor() {
+					super();
+
+					var items = [
+						'Browser Cache',
+						'DNS Cache',
+						'Edge Cache / CDN',
+						'(Full) Page Cache',
+						'Caching the results of executed code',
+						'MySQL Query Cache',
+						'Linux Page Cache',
+						'Magento Indexes',
+					];
+
+					if (this.getAttribute('data-show-and-more')) {
+						items.push('And more!');
+					}
+
+					var list = document.createElement('ul');
+
+					items.map((text, index) => {
+						let li = document.createElement('li');
+						li.innerHTML = (this.getAttribute('data-current-index') == index) ? `<strong>${text}</strong>` : text;
+						if (this.getAttribute('data-fragmented')) {
+							li.classList.add('fragment');
+							li.dataset.fragmentIndex = index;
+						}
+						list.appendChild(li);
+					})
+
+					this.appendChild(list);
+				}
+			}
+
+			customElements.define('x-agenda', XAgenda);
 		</script>
 	</body>
 </html>
