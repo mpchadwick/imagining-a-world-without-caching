@@ -300,6 +300,42 @@
 						<img src="img/m2-cache-ttfb.png">
 					</section>
 				</section>
+
+				<!-- 8. MySQL Caching -->
+				<section>
+					<section>
+						<h3>Agenda</h3>
+						<x-agenda data-current-index="5"></x-agenda>
+					</section>
+					<section>
+						<h1>MySQL Query Cache</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<li class="fragment">Some database `SELECT` queries are expensive to run.</li>
+						<li class="fragment">The result of the query is saved to the query cache.</li>
+						<li class="fragment">When the same query is run the next time it is pulled from cache.</li>
+						<li class="fragment">TODO Discuss invalidation strategy.</li>
+					</section>
+					<section>
+						<h3>How It's Used</h3>
+						// TODO show how it's set, configured, with code examples.
+					</section>
+					<section>
+						<h3>Imagining a World Without It</h3>
+						// TODO Insert quote / link from Percona article
+					</section>
+					<section>
+						<h3>Controversy!</h3>
+						// TODO Include quote / link to MySQL dev blog regarding removal
+					</section>
+					<section>
+						<h3>Pro Tips</h3>
+						<li class="fragment">Check your hit rate (TODO include link to maxchadwick.xyz blog post).</li>
+						<li class="fragment">For high volume it may actually hurt you, due to locking. Be ready to tune and refine.</li>
+						<li class="fragment">ProxySQL is an interesting query cache replacement, and official endorsed by MySQL dev team.</li>
+					</section>
+				</section>
 			</div>
 		</div>
 
