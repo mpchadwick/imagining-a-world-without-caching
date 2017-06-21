@@ -310,30 +310,57 @@
 					<section>
 						<h1>MySQL Query Cache</h1>
 					</section>
-					<section>
+					<section data-markdown>
+						<script type="text/template">
 						<h3>What Is It?</h3>
-						<li class="fragment">Some database `SELECT` queries are expensive to run.</li>
-						<li class="fragment">The result of the query is saved to the query cache.</li>
-						<li class="fragment">When the same query is run the next time it is pulled from cache.</li>
-						<li class="fragment">TODO Discuss invalidation strategy.</li>
+						<ul>
+							<li class="fragment">Some database `SELECT` queries are expensive to run.</li>
+							<li class="fragment">The result of the query is saved to the query cache.</li>
+							<li class="fragment">When the same query is run the next time it is pulled from cache.</li>
+							<li class="fragment">When tables are modified any relevant query cache entries are flushed.</li>
+						</ul>
+						</script>
 					</section>
-					<section>
+					<section data-markdown>
+						<script type="text/template">
+						<h3>Caveats</h3>
+						<ul>
+							<li class="fragment">Queries must be <strong>exactly</strong> the same (byte for byte).</li>
+							<li class="fragment">Queries using function such as `NOW()` or `CURDATE()` are not cached.</li>
+						</ul>
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
 						<h3>How It's Used</h3>
-						// TODO show how it's set, configured, with code examples.
+						<pre style="text-align: center"><code class="lang-mysql">query_cache_type = 1
+						query_cache_size = 100M
+						query_cache_limit = 2M
+						</code></pre>
+						</script>
 					</section>
 					<section>
-						<h3>Imagining a World Without It</h3>
-						// TODO Insert quote / link from Percona article
+						<h3>Imagining A World Without It</h3>
+						<img src="img/gears-cogs-machine-machinery-159298.jpg" width="500">
+						<p>MySQL re-runs <strong>every</strong> query</p>
 					</section>
 					<section>
 						<h3>Controversy!</h3>
-						// TODO Include quote / link to MySQL dev blog regarding removal
+						<p>Although MySQL Query Cache was meant to improve performance, it has serious scalability issues and it can easily become a severe bottleneck.</p>
+						<p><a href="http://mysqlserverteam.com/mysql-8-0-retiring-support-for-the-query-cache/">MySQL 8.0: Retiring Support for the Query Cache - MySQL Server Blog</a></p>
+					</section>
+					<section>
+						<h3>Counterpoint</h3>
+						<p>With Magento, you can expect to have a light write workload, very low concurrency and also quite complex SELECT statements. Given the results of our simple benchmarks, it is finally not that surprising that the MySQL query cache is a good fit in this case.</p>
+						<p><a href="https://www.percona.com/blog/2015/08/07/mysql-query-cache-worst-enemy-best-friend/">The MySQL query cache: Worst enemy or best friend? - Percona</a></p>
 					</section>
 					<section>
 						<h3>Pro Tips</h3>
-						<li class="fragment">Check your hit rate (TODO include link to maxchadwick.xyz blog post).</li>
-						<li class="fragment">For high volume it may actually hurt you, due to locking. Be ready to tune and refine.</li>
-						<li class="fragment">ProxySQL is an interesting query cache replacement, and official endorsed by MySQL dev team.</li>
+						<ul>
+							<li class="fragment"><a href="https://maxchadwick.xyz/blog/mysql-query-cache-hit-rate">Check your hit rate</a></li>
+							<li class="fragment">For high throughput sites it may actually hurt you, due to locking. Be ready to tune and refine.</li>
+							<li class="fragment"><a href="http://proxysql.com/">ProxySQL</a> is an interesting query cache replacement, and official endorsed by MySQL dev team.</li>
+						</ul>
 					</section>
 				</section>
 
