@@ -179,9 +179,8 @@
 					<section>
 						<h3>What Is It?</h3>
 						<ul>
-							<li class="fragment">When a request hits the network it travels through a series of "hops" to reach the "origin".</li>
-							<li class="fragment">The response may be cached at one of those stops along the way (an "edge").</li>
-							<li class="fragment">Responses cached at edge are closer geographically to user, reducing round-trip-time.</li>
+							<li class="fragment">Traditionally, when a request hits the network, it travels from the location of the user to the server hosting the response.</li>
+							<li class="fragment">CDNs ("Content Delivery Networks") sit between the user and the server ("at the edge") and cache responses.</li>
 							<li class="fragment">CDNs ("Content Delivery Networks") have many edges all around the world.</li>
 							<li class="fragment">Frequently used with static assets (img, js, css), but HTML can be served from the edge too.</li>
 						</ul>
@@ -387,18 +386,21 @@
 					</section>
 					<section>
 						<h3>What Is It?</h3>
+						<ul>
 						<li class="fragment">Reading off disk is slow.</li>
 						<li class="fragment">Reading from memory is fast.</li>
 						<li class="fragment">Linux caches things it previously read from disk in any available memory.</li>
-					</section>
-					<section>
-						<h3>Correctly Interpreting <code>free -m</code></h3>
-						// TODO bullets about interpreting free -m
+						</ul>
 					</section>
 					<section>
 						<h3>Imagining A World Without It</h3>
-						// TODO graph shwoing (rg) execution first and second time
-						<p>E</p>
+						<img src="img/ripgrep-cache.png" width="500">
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+						<h3>Correctly Interpreting `free -m`</h3>
+						<img src="img/free-m-results.jpg" width="600">
+						</script>
 					</section>
 				</section>
 			</div>
