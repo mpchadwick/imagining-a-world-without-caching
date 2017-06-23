@@ -12,23 +12,22 @@
 
 
 // Include theme-specific fonts
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
-
+@import url('https://fonts.googleapis.com/css?family=Athiti');
+@import url('https://fonts.googleapis.com/css?family=Monofett');
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: chocolate;
+$backgroundColor: #8b00ff;
 
 $mainColor: #fff;
 $headingColor: #fff;
 
 $mainFontSize: 42px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+$mainFont: 'Athiti', sans-serif;
+$headingFont: 'Monofett', cursive;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
-$headingFontWeight: 600;
-$linkColor: #fffb00;
+$linkColor: #24f166;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
