@@ -4,4 +4,4 @@
 
 Really?
 
-Performance is about making something fast and caching is a tried and true strategy for doing just that. In this talk we explore all the layers of caching that are at play between the time you press enter in your browser's address bar and the browser renders a response from a Magento application, and imagines a world where no caching was involved.
+From browser caching, to full page caching, to code caching, this talk explores the many types of caching that are involved in serving a web page to a user's browser and asks the question... "What would the world be like, without any caching?"
