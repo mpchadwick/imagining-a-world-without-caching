@@ -233,9 +233,11 @@
 					</section>
 					<section>
 						<h3>Strategies For Dealing With Personalized Content</h3>
+						<ul>
 						<li class="fragment">ESI</li>
 						<li class="fragment">AJAX (Magento 2)</li>
 						<li class="fragment">"Containers" (Magento 1)</li>
+						</ul>
 					</section>
 					<section>
 						<h3>Imagining A World Without It</h3>
@@ -401,6 +403,84 @@
 						<h3>Correctly Interpreting `free -m`</h3>
 						<img src="img/free-m-results.jpg" width="600">
 						</script>
+					</section>
+				</section>
+
+				<!-- 10. Magento Indexes -->
+				<section>
+					<section>
+						<h3>Agenda</h3>
+						<x-agenda data-current-index="7"></x-agenda>
+					</section>
+					<section>
+						<h1>Magento Indexes</h1>
+					</section>
+					<section>
+						<h3>What Is It?</h3>
+						<ul>
+						<li class="fragment">Calculating things like whether or not a product can be sold, or the final price of a product is an expensive operation.</li>
+						<li class="fragment">It would be a lot more efficient to pre-calculate (and cache) these calculations for quicker lookup.</li>
+						<li class="fragment">Magento indexes are an faux-implementation of a materialized view to implement this functionality.</li>
+						</ul>
+					</section>
+					<section>
+						<p style="font-size: 32px">They are not indexes like a BTree or hash but act more like a pre-calculation table. In SQL parlance this often known as a Materialized View.  This is similar to a regular view, where the table contains the results of a query but unlike a regular view which updates its contents when the row changes a Materialized View does not.</p>
+						<p style="font-size: 32px">MySQL does not support Materialized Views and so Magento implemented a sort of pseudo-Materialized View.</p>
+						<p style="font-size: 32px"><a href="http://www.eschrade.com/page/indexing-in-magento-or-the-wonderful-world-of-materialized-views/">(New(ish)) Indexing in Magento or "The wonderful world of materialized views" - Kevin Schroeder</a></p>
+					</section>
+					<section>
+						<h3>Imagining A World Without It</h3>
+						<img src="img/traffic-from-above_4460x4460.jpg" width="500">
+						<p>Magento page load times tank as it chugs away calculating product prices, attribute values, and product sale-ability.</p>
+					</section>
+					<section>
+						<h3>Pro Tips</h3>
+						<ul>
+							<li class="fragment">Set indexing mode to run on schedule (EE only in M1, included in CE in M2)</li>
+							<li class="fragment"><a href="https://maxchadwick.xyz/blog/magento-enterprise-index-lesson-329">Be careful with the changelog tables when transfering data to stage / dev or you might break indexing</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- 11. Conclusion -->
+				<section>
+					<section>
+						<h1>Conclusion</h1>
+					</section>
+					<section>
+						<img src="img/caching-is-not-performance-google-search.png" width="600">
+					</section>
+					<section>
+						<h3>"Caching != Performance"</h3>
+						<ul>
+						<li class="fragment">This statement is patently false.</li>
+						<li class="fragment">The goal of "performance" is to make things faster.</li>
+						<li class="fragment">Caching is a tried and true strategy for doing that at all levels of the stack.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>The correct message</h3>
+						<ul>
+						<li class="fragment">Caching is not the only part of performance.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Other important things for a performant Magento site (a few)</h3>
+						<ul>
+						<li class="fragment">Efficient data querying.</li>
+						<li class="fragment">Avoiding model LSD in loop.</li>
+						<li class="fragment">Minimizing bytes sent across the network (images, scripts, styles).</li>
+						<li class="fragment">Well configured infrastructure.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Questions?</h1>
+					</section>
+					<section>
+						<h1>THANK YOU!</h1>
 					</section>
 				</section>
 			</div>
