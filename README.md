@@ -1,6 +1,6 @@
 # Imaginging A World Without Caching
 
-"Performance is not about caching?"
+"Performance is not about caching."
 
 Really?
 
