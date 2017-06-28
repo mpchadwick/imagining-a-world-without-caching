@@ -77,10 +77,10 @@
 					<section>
 						<h3>What Is It?</h3>
 						<ul>
-							<li class="fragment">When you make a request your browser will first check it's cache to see if the response is available.</li>
-							<li class="fragment">Cache contents are stored on your local device.</li>
+							<li class="fragment">When a user requests a web page or asset the browser will first check it's cache to see if the response is available.</li>
+							<li class="fragment">Cache contents are stored in the browser on the device making the request.</li>
 							<li class="fragment">If the response is in cache, the request never hits the network.</li>
-							<li class="fragment">Your application uses HTTP response headers to instruct the browser how to cache the response.</li>
+							<li class="fragment">The application uses HTTP response headers to instruct the browser how to cache responses.</li>
 						</ul>
 					</section>
 					<section data-markdown>
@@ -99,17 +99,27 @@
 
 						</IfModule>
 						```
+
+						[Magento 2's `.htaccess` file](https://github.com/magento/magento2/blob/1e19c9365a73a349917f8f30dc72473e9bc3e376/pub/.htaccess#L177-L187)
 						</script>
 					</section>
 					<section>
+						<h3>M1 is Borked</h3>
+						<img src="img/htaccess-m1.png" alt="" width="800" />
+						<p style="font-size: 24px;"><a href="https://github.com/OpenMage/magento-mirror/blob/7185e6fd88e656df815184f8120c2379706cfc54/.htaccess#L196-L204">https://github.com/OpenMage/magento-mirror/blob/7185e6fd88e656df815184f8120c2379706cfc54/.htaccess#L196-L204</a></p>
+					</section>
+					<section>
 						<h3>Imagining A World Without It</h3>
-						<a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">
-							<img src="img/browser-caching-web-page-test.png" alt="" width="800" />
-						</a>
+						<img src="img/browser-caching-web-page-test.png" alt="" width="800" />
 						<p style="font-size: 24px;"><a href="http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/">http://www.webpagetest.org/result/170418_CF_068e646b72e79540d5eba4037a346446/</a></p>
 					</section>
 					<section>
 						<p>Improvements will be even <strong>more</strong> drastic on real world sites</p>
+					</section>
+					<section>
+						<h3>amazon.com</h3>
+						<img src="img/amazon-web-page-test.png" alt="" width="800" />
+						<p style="font-size: 24px;"><a href="https://www.webpagetest.org/result/170628_TR_21a9fb6900eefcfed9024297ebed5118/">https://www.webpagetest.org/result/170628_TR_21a9fb6900eefcfed9024297ebed5118/</a></p>
 					</section>
 					<section>
 						<h3>Pro Tips</h3>
