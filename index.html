@@ -153,7 +153,7 @@
 							<li class="fragment">When a request hits the network, DNS is used to understand which server to go to.</li>
 							<li class="fragment">DNS records are hosted on nameservers.</li>
 							<li class="fragment">A TTL is included in each DNS record. Your computer and the internet cache DNS records for that long.</li>
-							<li class="fragment">If the DNS record is in cache, the nameserver does not need to be consulted to find where to go.</li>
+							<li class="fragment">If the DNS record is in cache, the nameserver will not need to be consulted to find where to go.</li>
 						</ul>
 					</section>
 					<section>
@@ -184,38 +184,41 @@
 						<x-agenda data-current-index="2"></x-agenda>
 					</section>
 					<section>
-						<h1>Edge Cache / CDNs</h1>
+						<h1>Edge Cache</h1>
 					</section>
 					<section>
 						<h3>What Is It?</h3>
 						<ul>
-							<li class="fragment">Traditionally, when a request hits the network, it travels from the location of the user to the server hosting the response.</li>
+							<li class="fragment">Traditionally, when a user makes a request, it travels across the network to the physical server hosting the requested resource.</li>
 							<li class="fragment">CDNs ("Content Delivery Networks") sit between the user and the server ("at the edge") and cache responses.</li>
-							<li class="fragment">CDNs ("Content Delivery Networks") have many edges all around the world.</li>
+							<li class="fragment">CDNs have many edges all around the world.</li>
 							<li class="fragment">Frequently used with static assets (img, js, css), but HTML can be served from the edge too.</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Why?</h3>
 						<ul>
-							<li class="fragment">Responses cached at edge are closer geographically to user, reducing round-trip-time.</li>
+							<li class="fragment">Responses cached at edge are closer geographically to the user, reducing round-trip-time.</li>
 							<li class="fragment">Frees up resources on your origin webserver to focus on executing PHP, MySQL, etc...</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Imagining A World Without It</h3>
 						<img src="img/exhausted.jpg" width="500">
-						<p>Requests for assets must travel all the way to origin server, regardless of geographic user of end server.</p>
+						<p>Requests for assets must travel all the way to origin server, regardless of geographic location of the end user.</p>
 					</section>
 					<section>
 						<h3>Some Popular Providers...</h3>
 						<ul>
-							<li class="fragment">Cloudflare</li>
-							<li class="fragment">Cloudfront (Amazon)</li>
-							<li class="fragment">Akamai</li>
-							<li class="fragment">Fastly (Magento cloud)</li>
-							<li class="fragment">Section.io</li>
+							<li class="fragment"><a href="https://www.cloudflare.com/">Cloudflare</a></li>
+							<li class="fragment"><a href="https://aws.amazon.com/cloudfront/">Cloudfront (Amazon)</a></li>
+							<li class="fragment"><a href="https://www.akamai.com/">Akamai</a></li>
+							<li class="fragment"><a href="https://www.fastly.com/">Fastly (Magento Enterprise Cloud Edition)</a></li>
+							<li class="fragment"><a href="https://www.section.io/">Section.io</a></li>
 						</ul>
+					</section>
+					<section>
+					<p>Providers frequently offer additional services such as a WAF, DDoS protection, image compression</p>
 					</section>
 				</section>
 
@@ -521,7 +524,7 @@
 					var items = [
 						'Browser Cache',
 						'DNS Cache',
-						'Edge Cache / CDN',
+						'Edge Cache',
 						'(Full) Page Cache',
 						'Code Cache',
 						'MySQL Query Cache',
