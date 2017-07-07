@@ -145,7 +145,7 @@
 						<x-agenda data-current-index="1"></x-agenda>
 					</section>
 					<section>
-						<h1>DNS Caching</h1>
+						<h1>DNS Cache</h1>
 					</section>
 					<section>
 						<h3>What Is It?</h3>
@@ -284,15 +284,15 @@
 						<x-agenda data-current-index="4"></x-agenda>
 					</section>
 					<section>
-						<h1>Code caching</h1>
+						<h1>Code Cache</h1>
 					</section>
 					<section>
 						<h3>What Is It?</h3>
 						<ul>
 							<li class="fragment">Some application code is expensive to run.</li>
-							<li class="fragment">The result of the code is saved somewhere.</li>
-							<li class="fragment">Next time the code needs to run it first checks if the response is in cache</li>
-							<li class="fragment">The cache result can persist requests (e.g. saved in redis) or be reused in context of single request (saved in variable)</li>
+							<li class="fragment">The idea of code caching is to save the result executed code.</li>
+							<li class="fragment">Next time the code needs to run it first checks if the result is in cache</li>
+							<li class="fragment">Code cache can persist requests (e.g. saved in redis) or be reused in context of single request (saved in variable)</li>
 						</ul>
 					</section>
 					<section>
@@ -341,7 +341,7 @@
 						<h3>What Is It?</h3>
 						<ul>
 							<li class="fragment">Some database `SELECT` queries are expensive to run.</li>
-							<li class="fragment">The result of the query is saved to the query cache.</li>
+							<li class="fragment">MySQL Query Cache stores the generated result of these queries.</li>
 							<li class="fragment">When the same query is run the next time it is pulled from cache.</li>
 							<li class="fragment">When tables are modified any relevant query cache entries are flushed.</li>
 						</ul>
@@ -352,7 +352,7 @@
 						<h3>Caveats</h3>
 						<ul>
 							<li class="fragment">Queries must be <strong>exactly</strong> the same (byte for byte).</li>
-							<li class="fragment">Queries using function such as `NOW()` or `CURDATE()` are not cached.</li>
+							<li class="fragment">Queries using functions such as `NOW()` or `CURDATE()` are not cached.</li>
 						</ul>
 						</script>
 					</section>
