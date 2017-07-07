@@ -480,8 +480,14 @@
 					<section>
 						<h3>The correct message</h3>
 						<ul>
-						<li class="fragment">Caching is not the only part of performance.</li>
+						<li class="fragment">Caching is not the <strong>only</strong> part of performance.</li>
 						</ul>
+                        <aside class="notes">
+                        We still need to optimize for cache misses
+                        - We should minimize bytes transfers / optimize configuration for browser cache misses
+                        - We shouldn't have missing database indexes / poorly written queries
+                        - PHP code shouldn't have model load-save-delete in loops
+                        </aside>
 					</section>
 				</section>
 
