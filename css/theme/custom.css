@@ -4,10 +4,7 @@
  * By Hakim El Hattab, http://hakim.se
  */
 @import url("https://fonts.googleapis.com/css?family=Athiti");
-@import url("https://fonts.googleapis.com/css?family=Monofett");
-section.has-light-background {
-  color: white; }
-
+@import url("https://fonts.googleapis.com/css?family=Wellfleet");
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -47,12 +44,12 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #fff;
-  font-family: "Monofett", cursive;
+  font-family: "Wellfleet", cursive;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: uppercase;
-  text-shadow: none;
+  text-shadow: 2px 2px black;
   word-wrap: break-word; }
 
 .reveal h1 {
@@ -68,7 +65,7 @@ body {
   font-size: 1em; }
 
 .reveal h1 {
-  text-shadow: none; }
+  text-shadow: 2px 2px black; }
 
 /*********************************************
  * OTHER

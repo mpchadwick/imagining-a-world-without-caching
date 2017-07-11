@@ -13,7 +13,8 @@
 
 // Include theme-specific fonts
 @import url('https://fonts.googleapis.com/css?family=Athiti');
-@import url('https://fonts.googleapis.com/css?family=Monofett');
+//@import url('https://fonts.googleapis.com/css?family=Monofett');
+@import url('https://fonts.googleapis.com/css?family=Wellfleet');
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #8b00ff;
@@ -23,8 +24,8 @@ $headingColor: #fff;
 
 $mainFontSize: 42px;
 $mainFont: 'Athiti', sans-serif;
-$headingFont: 'Monofett', cursive;
-$headingTextShadow: none;
+$headingFont: 'Wellfleet', cursive;
+$headingTextShadow: 2px 2px black;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $linkColor: #dfff00;
@@ -35,10 +36,7 @@ $heading1Size: 2.5em;
 $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
-
-section.has-light-background {
-    color: white;
-}
+$heading1TextShadow: 2px 2px black;
 
 
 // Theme template ------------------------------
