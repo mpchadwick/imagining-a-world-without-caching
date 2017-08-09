@@ -62,7 +62,8 @@
 					</section>
 					<section>
 						<h3>Types of caching when making an HTTP request to Magento...</h3>
-						<x-agenda data-fragmented="1"></x-agenda>
+						<x-agenda data-fragmented="1" data-not="30m"></x-agenda>
+						<x-agenda data-fragmented="1" data-is="30m" data-show-and-more="1"></x-agenda>
 					</section>
 					<section>
 						<p>Let's imagine a world without any caching...</p>
@@ -140,7 +141,7 @@
 				</section>
 
 				<!-- 4. DNS Caching -->
-				<section data-background-color="#b30000">
+				<section data-background-color="#b30000" data-not="30m">
 					<section>
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="1"></x-agenda>
@@ -337,7 +338,7 @@
 				</section>
 
 				<!-- 8. MySQL Query Caching -->
-				<section data-background-color="#ff008b">
+				<section data-background-color="#ff008b" data-not="30m">
 					<section>
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="5"></x-agenda>
@@ -401,7 +402,7 @@
 				</section>
 
 				<!-- 9. Linux Page Caching -->
-				<section data-background-color="#02a9ab">
+				<section data-background-color="#02a9ab" data-not="30m">
 					<section>
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="6"></x-agenda>
@@ -524,6 +525,22 @@
 				]
 			});
 
+			Reveal.addEventListener('ready', function(event) {
+			    var q = window.location.search;
+			    if (q) {
+			        var mode = q.split('?mode=')[1];
+			        var hide = document.querySelectorAll('[data-not="' + mode + '"]');
+			        Array.prototype.forEach.call(hide, function(node) {
+			            node.parentNode.removeChild(node);
+			        });
+
+			        var show = document.querySelectorAll('[data-is="' + mode + '"]');
+			        Array.prototype.forEach.call(show, function(node) {
+			            node.style.display = "initial";
+			        });
+			    }
+			})
+
 			class XAgenda extends HTMLElement {
 				constructor() {
 					super();
@@ -539,6 +556,18 @@
 						'Magento Indexes',
 					];
 
+					// In 30 minute mode we skip these...
+					var skipItems = [
+						'DNS Cache',
+						'MySQL Query Cache',
+						'Linux Page Cache'
+					];
+
+					var q = window.location.search;
+					if (q) {
+						var mode = q.split('?mode=')[1];
+					}
+
 					if (this.getAttribute('data-show-and-more')) {
 						items.push('And more!');
 					}
@@ -546,6 +575,9 @@
 					var list = document.createElement('ul');
 
 					items.map((text, index) => {
+						if (mode == '30m' && skipItems.includes(text)) {
+							return;
+						}
 						let li = document.createElement('li');
 						li.innerHTML = (this.getAttribute('data-current-index') == index) ? `<strong>${text}</strong>` : text;
 						if (this.getAttribute('data-fragmented')) {

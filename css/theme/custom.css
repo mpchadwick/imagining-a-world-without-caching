@@ -291,3 +291,6 @@ body {
 
 .reveal a {
   text-decoration: underline; }
+
+[data-is] {
+  display: none; }
