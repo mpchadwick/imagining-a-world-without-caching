@@ -289,7 +289,7 @@
 				</section>
 
 				<!-- 7. Code Caching -->
-				<section data-background-color="#ff8f00">
+				<section data-background-color="#ff8f00" data-not="30m">
 					<section>
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="4"></x-agenda>
@@ -488,6 +488,7 @@
 						<h3>The correct message</h3>
 						<ul>
 						<li class="fragment">Caching is not the <strong>only</strong> part of performance.</li>
+						<li class="fragment">Performance = High Cache Hit Rate + Fast Uncached Execution</li>
 						</ul>
                         <aside class="notes">
                         We still need to optimize for cache misses
@@ -560,6 +561,7 @@
 					// In 30 minute mode we skip these...
 					var skipItems = [
 						'DNS Cache',
+						'Code Cache',
 						'MySQL Query Cache',
 						'Linux Page Cache'
 					];
