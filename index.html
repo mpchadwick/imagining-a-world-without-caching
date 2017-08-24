@@ -182,7 +182,7 @@
 
 				<!-- 5. Edge Caching -->
 				<section data-background-color="#404040">
-					<section>
+					<section data-not="30m">
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="2"></x-agenda>
 					</section>
@@ -232,7 +232,7 @@
 
 				<!-- 6. (Full) Page Caching -->
 				<section data-background-color="#0660af">
-					<section>
+					<section data-not="30m">
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="3"></x-agenda>
 					</section>
@@ -432,7 +432,7 @@
 				</section>
 
 				<!-- 10. Magento Indexes -->
-				<section data-background-color="#5e5892">
+				<section data-background-color="#5e5892" data-not="30m">
 					<section>
 						<h3>Agenda</h3>
 						<x-agenda data-current-index="7"></x-agenda>
@@ -563,7 +563,8 @@
 						'DNS Cache',
 						'Code Cache',
 						'MySQL Query Cache',
-						'Linux Page Cache'
+						'Linux Page Cache',
+						'Magento Indexes',
 					];
 
 					var q = window.location.search;
